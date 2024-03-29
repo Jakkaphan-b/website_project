@@ -10,9 +10,9 @@ const loadData = async () => {
         const response = await axios.get(`${BASE_URL}/users`);
         console.log(response.data);
 
-        const studentDOM = document.getElementById('user');
+        const projectDOM = document.getElementById('user');
 
-        if (studentDOM) {
+        if (projectDOM) {
             let htmlData = '<table>';
             htmlData += '<tr><th>ID</th><th>ProjectName</th><th>Detail</th><th>Responsible</th><th>Activity</th><th>Start</th><th>End</th><th>Progress(%)</th><th>Spending</th><th>Edit</th><th>Delete</th></tr>';
 
@@ -37,7 +37,7 @@ const loadData = async () => {
             }
 
             htmlData += '</table>';
-            studentDOM.innerHTML = htmlData;
+            projectDOM.innerHTML = htmlData;
 
             const deleteDOMs = document.getElementsByClassName('delete-button');
             for (let i = 0; i < deleteDOMs.length; i++) {
@@ -52,7 +52,7 @@ const loadData = async () => {
                 });
             }
         } else {
-            console.log('studentDOM is null or not found');
+            console.log('projectDOM is null or not found');
         }
     } catch (error) {
         console.log(error);

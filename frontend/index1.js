@@ -87,16 +87,16 @@ const validateData = (userData) => {
 const submitData = async () => {
   let messageDOM = document.getElementById('message');
   try {
-    let projectnameDOM = document.getElementById("projectname");
-    let detailDOM =  document.getElementById("detail");
-    let responsibleDOM = document.getElementById("responsible");
-    let activityDOM = document.getElementById("activity");
-    let startDOM= document.getElementById("start");
-    let endDOM  =  document.getElementById("end");
-    let progressDOM= document.getElementById("progress");
-    let Cost_budgetDOM= document.getElementById("Cost_budget");
-    let financial_budgetDOM= document.getElementById("financial_budget");
-    let spendingDOM = document.getElementById("spending");
+    let projectnameDOM = document.querySelector("input[name=projectname]");
+    let detailDOM =  document.querySelector("input[name=detail]");
+    let responsibleDOM = document.querySelector("input[name=responsible]");
+    let activityDOM = document.querySelector("input[name=activity]");
+    let startDOM= document.querySelector("input[name=start]");
+    let endDOM  =  document.querySelector("input[name=end]");
+    let progressDOM= document.querySelector("input[name=progress]");
+    let Cost_budgetDOM= document.querySelector("input[name=Cost_budget]");
+    let financial_budgetDOM= document.querySelector("input[name=financial_budget]");
+    let spendingDOM = document.querySelector("input[name=spending]");
     
 
     
