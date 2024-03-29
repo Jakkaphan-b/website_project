@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: url(/img/img1.png) no-repeat;
+    align-items: center;
+    background-size: cover;
+    background-position:center;
+    text-align: center;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: left;
+    background-color: white;
+    backdrop-filter: blur(3px);
+    background: transparent;
+}
+form {
+    margin-top: 20px;
+    text-align: left; 
+}
+input[type="text"],
+input[type="datetime-local"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button{
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+} 
+h2{
+    color: #000000;
+}
+.message {
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    margin: 20px;
+    display: none;
+}
+  .message.success {
+    background-color: green;
+    display: block;
+    text-align: center;
+}
+.message.danger {
+    background-color: red;
+    display: block;
+}
