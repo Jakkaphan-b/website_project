@@ -46,7 +46,7 @@ const loadData = async () => {
             for (let i = 0; i < editDOMs.length; i++) {
                 editDOMs[i].addEventListener('click', (event) => {
                     const id = event.target.id; // รับ id ของ project จาก attribute id ของปุ่ม
-                    window.location.href = `edit.html?id=${id}`; // นำผู้ใช้ไปยังหน้า edit.html พร้อมส่ง id ของ project ที่ต้องการแก้ไขไปด้วย
+                    window.location.href = `index_edit.html?id=${id}`; // นำผู้ใช้ไปยังหน้า edit.html พร้อมส่ง id ของ project ที่ต้องการแก้ไขไปด้วย
                 });
             }
 

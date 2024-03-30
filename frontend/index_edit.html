@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management System</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Project Management System</h1>
+
+    <!-- Form for adding and editing projects -->
+    <form id="project-form">
+        <label for="projectname">Project Name:</label><br>
+        <input type="text" id="projectname" name="projectname" required><br>
+        <label for="detail">Detail:</label><br>
+        <input type="text" id="detail" name="detail" required><br>
+        <label for="responsible">Responsible:</label><br>
+        <input type="text" id="responsible" name="responsible" required><br>
+        <label for="activity">Activity:</label><br>
+        <input type="text" id="activity" name="activity" required><br>
+        <label for="start">Start:</label><br>
+        <input type="date" id="start" name="start" required><br>
+        <label for="end">End:</label><br>
+        <input type="date" id="end" name="end" required><br>
+        <label for="progress">Progress (%):</label><br>
+        <input type="number" id="progress" name="progress" required><br>
+        <label for="Cost_budget">Cost budget:</label><br>
+        <input type="text" id="Cost_budget" name="Cost_budget" required><br><br>
+        <label for="financial_budget">Financial budget:</label><br>
+        <input type="text" id="financial_budget" name="financial_budget" required><br><br>
+        <label for="spending">Spending:</label><br>
+        <input type="text" id="spending" name="spending" required><br><br>
+        <button type="submit" id="submit-button">Add Project</button>
+        <button type="button" id="save-changes-button" style="display: none;">Save Changes</button>
+    </form>
+
+    <a href="project.html" class="view-project-button">View Project</a> <!-- Link to project.html -->
+    
+    <!-- Script for Axios and project operations -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index_edit.js" charset="UTF-8"></script>
+</body>
+</html>
