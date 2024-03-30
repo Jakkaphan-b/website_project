@@ -1,0 +1,82 @@
+<!-- edit.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Project</title>
+    <link rel="stylesheet" href="edit.css">
+</head>
+<body>
+    <h1>Edit Project</h1>
+
+    <form id="edit-form">
+        <label for="projectname">Project Name:</label><br>
+        <input type="text" id="projectname" name="projectname"><br>
+        <label for="detail">Detail:</label><br>
+        <input type="text" id="detail" name="detail"><br>
+        <label for="responsible">Responsible:</label><br>
+        <input type="text" id="responsible" name="responsible"><br>
+        <label for="activity">Activity:</label><br>
+        <input type="text" id="activity" name="activity"><br>
+        <label for="start">Start:</label><br>
+        <input type="date" id="start" name="start"><br>
+        <label for="end">End:</label><br>
+        <input type="date" id="end" name="end"><br>
+        <label for="progress">Progress (%):</label><br>
+        <input type="number" id="progress" name="progress"><br>
+        <label for="Cost_budget">Cost_budget:</label><br>
+        <input type="text" id="Cost_budget" name="Cost_budget" ><br><br>
+        <label for="financial_budget">financial_budget:</label><br>
+        <input type="text" id="financial_budget" name="financial_budget" ><br><br>
+        <label for="spending">Spending:</label><br>
+        <input type="text" id="spending" name="spending"><br><br>
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const BASE_URL = 'http://localhost:8000';
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+
+        window.onload = async () => {
+            await loadProjectData();
+        }
+
+        const loadProjectData = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/users/${projectId}`);
+                const project = response.data;
+
+                document.getElementById('projectname').value = project.projectname;
+                document.getElementById('detail').value = project.detail;
+                document.getElementById('responsible').value = project.responsible;
+                document.getElementById('activity').value = project.activity;
+                document.getElementById('start').value = project.start;
+                document.getElementById('end').value = project.end;
+                document.getElementById('progress').value = project.progress;
+                document.getElementById('Cost_budget').value = project.Cost_budget;
+                document.getElementById('financial_budget').value = project.financial_budget;
+                document.getElementById('spending').value = project.spending;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        document.getElementById('edit-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const updatedProject = Object.fromEntries(formData.entries());
+
+            try {
+                await axios.put(`${BASE_URL}/users/${projectId}`, updatedProject);
+                alert('Project updated successfully!');
+                window.location.href = 'project.html'; // หลังจากอัพเดทโปรเจคแล้วให้กลับไปยังหน้า project.html
+            } catch (error) {
+                console.log(error);
+            }
+        });
+    </script>
+</body>
+</html>

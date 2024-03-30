@@ -3,47 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Management System - กรอกข้อมูล</title>
-    <link rel="stylesheet" href="test.css">
+    <title>Add Project</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <h1>Project Management System</h1>
+
+    <form id="add-form">
+        <label for="projectname">Project Name:</label><br>
+        <input type="text" id="projectname" name="projectname" required><br>
+        <label for="detail">Detail:</label><br>
+        <input type="text" id="detail" name="detail" required><br>
+        <label for="responsible">Responsible:</label><br>
+        <input type="text" id="responsible" name="responsible" required><br>
+        <label for="activity">Activity:</label><br>
+        <input type="text" id="activity" name="activity" required><br>
+        <label for="start">Start:</label><br>
+        <input type="date" id="start" name="start" required><br>
+        <label for="end">End:</label><br>
+        <input type="date" id="end" name="end" required><br>
+        <label for="progress">Progress (%):</label><br>
+        <input type="number" id="progress" name="progress" required><br>
+        <label for="Cost_budget">Cost budget:</label><br>
+        <input type="text" id="Cost_budget" name="Cost_budget" required><br><br>
+        <label for="financial_budget">financial budget:</label><br>
+        <input type="text" id="financial_budget" name="financial_budget" required><br><br>
+        <label for="spending">Spending:</label><br>
+        <input type="text" id="spending" name="spending" required><br><br>
+        <button type="submit">Add Project</button>
+    </form>
+
+    <a href="project.html" class="view-project-button">View Project</a> <!-- เพิ่มลิงก์ไปยังหน้า project.html -->
     
-    <div class="container">
-        <h2>ข้อมูลโครงการ</h2>
-        <div class="projectgname">ชื่อโครงการ:</div>
-        <input type="text" id="projectgname" name="projectgname" required>
-        <div class="detail">รายละเอียด:</div>
-        <input type="text" id="detail" name="detail" rows="4" required>
-        <div class="responsible">ผู้รับผิดชอบ:</div>
-        <input type="text" id="responsible" name="responsible" required>
-        
-        <h2>ข้อมูลกิจกรรมในโครงการ</h2>
-        <div class="activity">กิจกรรม:</div>
-        <input type="text" id="activity" name="activity" required>
-        <div class="start">เวลาเริ่มต้น:</div>
-        <input type="datetime-local" id="start" name="start" required>
-        <div class="end">เวลาสิ้นสุด:</div>
-        <input type="datetime-local" id="end" name="end" required>  
-        <div class="progress">ความคืบหน้า (%):</div>
-        <input type="number" id="progress" name="progress" required>
-
-        <h2>ข้อมูลงบประมาณ</h2>
-        <div for="Cost_budget">งบประมาณต้นทุน:</div>
-        <input type="number" id="Cost_budget" name="Cost_budget" min="0" required><br>
-        <div for="financial_budget">งบประมาณการเงิน:</div>
-        <input type="number" id="financial_budget" name="financial_budget" min="0" required><br>     
-        <div class="spending">รายงานการใช้จ่าย:</div><br>
-        <input  type="number" id="spending" name="spending" rows="4" required><br>
-
-        <div id="message" class="message"></div>
-
-        <button class="button" onclick="submitData()">Submit</button>
-    </div>
-    <a href="project.html" style="color: rgb(8, 4, 87); text-decoration: none; font-size: large;">Go to Edit project</a>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="index1.js" charset="UTF-8"></script>
+    <script src="index.js" charset="UTF-8">   </script>
+    <!-- <script>
+        const BASE_URL = 'http://localhost:8000';
+
+        document.getElementById('add-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const newProject = Object.fromEntries(formData.entries());
+
+            try {
+                await axios.post(`${BASE_URL}/users`, newProject);
+                alert('Project added successfully!');
+                window.location.href = 'index.html'; // Redirect to index.html after adding project
+            } catch (error) {
+                alert('Failed to add project!');
+            }
+        });
+        </script> -->
+
 </body>
 </html>
-
