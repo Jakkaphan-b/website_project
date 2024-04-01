@@ -13,6 +13,41 @@ window.onload = async () => {
     }
 }
 
+const validateData = (userData) => {
+    let errors = []
+    if (!userData.projectname) {
+      errors.push("ชื่อโครงการ")
+    }
+    if (!userData.detail) {
+      errors.push("รายละเอียด")
+    }
+    if (!userData.responsible) {
+      errors.push("ผู้รับผิดชอบ")
+    }
+    if (!userData.activity) {
+      errors.push("กิจกรรม")
+    }
+    if (!userData.start) {
+      errors.push("เวลาเริ่ม")
+    }
+    if (!userData.end) {
+      errors.push("เวลาจบ")
+    }
+    if (!userData.progress) {
+      errors.push("ความคืบหน้า")
+    }
+    if (!userData.Cost_budget) {
+      errors.push("งบประมาณต้นทุน")
+    }
+    if (!userData.financial_budget) {
+      errors.push("งบประมาณการเงิน")
+    }
+    if (!userData.spending) {
+      errors.push("รายงานการใช้จ่าย")
+    }
+    return errors
+  }
+  
 const loadProjectData = async (projectId) => {
     try {
         const response = await axios.get(`${BASE_URL}/users/${projectId}`);
@@ -41,7 +76,7 @@ document.getElementById('project-form').addEventListener('submit', async (event)
     try {
         await axios.post(`${BASE_URL}/users`, projectData);
         alert('Project added successfully!');
-        window.location.href = 'index.html'; // Redirect to index.html after adding project
+        window.location.href = 'index_edit.html'; // Redirect to index.html after adding project
     } catch (error) {
         alert('Failed to add project!');
     }

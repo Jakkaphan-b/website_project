@@ -6,7 +6,6 @@ const app = express()
 
 app.use(bodyparser.json())
 app.use(cors())
-
 const port = 8000
 
 let conn = null
